@@ -1,7 +1,14 @@
-// eslint-disable-next-line import/prefer-default-export
-export function leftClick(mineField, clickTimer, startTimer, revealTileAndOrAdjTiles) {
+export function leftClick({
+  mineField,
+  // eslint-disable-next-line no-unused-vars
+  clickTimer,
+  startTimer,
+  pauseTimer,
+  revealTileAndOrAdjTiles
+}) {
   return (event) => {
     if (event.detail === 1) {
+      // eslint-disable-next-line no-param-reassign
       clickTimer = setTimeout(() => {
         const thisTile = mineField.allTiles[event.target.dataset.colAndRow];
 
@@ -11,7 +18,7 @@ export function leftClick(mineField, clickTimer, startTimer, revealTileAndOrAdjT
             startTimer();
           }
           if (thisTile.isConcealed) {
-            revealTileAndOrAdjTiles.call(mineField, thisTile);
+            revealTileAndOrAdjTiles.call(mineField, thisTile, pauseTimer);
           }
         }
       }, 175);

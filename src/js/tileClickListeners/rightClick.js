@@ -1,5 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
-export function rightClick(mineField, updateMineCounter, newTileNode) {
+import { numMinesRemaining } from '../uiVariables';
+
+export function rightClick({ mineField, updateMineCounter, newTileNode }) {
   return (event) => {
     event.preventDefault();
     const thisTile = mineField.allTiles[event.target.dataset.colAndRow];
@@ -12,7 +13,7 @@ export function rightClick(mineField, updateMineCounter, newTileNode) {
         const currFlag = event.target.firstChild;
         event.target.removeChild(currFlag);
       }
-      updateMineCounter(mineField.numUnflaggedMines);
+      updateMineCounter(mineField.numUnflaggedMines, numMinesRemaining);
     }
   };
 }

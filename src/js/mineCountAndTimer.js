@@ -1,35 +1,28 @@
-export const mineCountAndTimerFunctions = (timerDisplayNode, numMinesRemainingNode, headerClass) => {
+const [padTwo, padThree] = ((...numDigitsArr) => numDigitsArr.map((numDigits) => {
+  let paddedNum = '';
+  while (paddedNum.length < numDigits) {
+    paddedNum += '0';
+  }
+
+  return (num) => {
+    const numStr = Math.abs(num) + '';
+
+    return (
+      paddedNum.substring(0, paddedNum.length - numStr.length) + numStr
+    );
+  };
+})
+)(2, 3);
+
+export const allTimerFunctions = (timerDisplayNode, headerClass) => {
   let timerInterval = null;
   let [milliseconds, seconds, minutes] = [0, 0, 0];
   let suckClass = '';
 
-  const [padTwo, padThree] = ((...numDigitsArr) => {
-    return numDigitsArr.map((numDigits) => {
-      let paddedNum = '';
-      while (paddedNum.length < numDigits) {
-        paddedNum += '0';
-      }
-
-      return (num) => {
-        let numStr = Math.abs(num) + '';
-
-        return (
-          paddedNum.substring(0, paddedNum.length - numStr.length) + numStr
-        );
-      };
-    });
-  })(2, 3);
   function updateTimer(mins, secs, millSecs) {
     timerDisplayNode.innerText = `${padTwo(mins)}:${padTwo(secs)}:${padThree(
       millSecs
     )}`;
-  }
-  function updateMineCounter(remainingMines) {
-    numMinesRemainingNode.innerText =
-      '💣 :' +
-      (remainingMines < 0
-        ? '-' + padThree(remainingMines)
-        : ' ' + padThree(remainingMines));
   }
 
   function startTimer() {
@@ -44,10 +37,10 @@ export const mineCountAndTimerFunctions = (timerDisplayNode, numMinesRemainingNo
         timerDisplayNode.innerText = 'you suck!';
       } else {
         milliseconds += 10;
-        if (milliseconds == 1000) {
+        if (milliseconds === 1000) {
           milliseconds = 0;
           seconds++;
-          if (seconds == 60) {
+          if (seconds === 60) {
             seconds = 0;
             minutes++;
           }
@@ -68,9 +61,14 @@ export const mineCountAndTimerFunctions = (timerDisplayNode, numMinesRemainingNo
   }
 
   return {
-    updateMineCounter: updateMineCounter,
     startTimer: startTimer,
     pauseTimer: pauseTimer,
-    resetTimer: resetTimer,
+    resetTimer: resetTimer
   };
 };
+
+export function updateMineCounter(remainingMines, numMinesRemainingNode) {
+  numMinesRemainingNode.innerText = '💣 :' + (remainingMines < 0
+    ? '-' + padThree(remainingMines)
+    : ' ' + padThree(remainingMines));
+}

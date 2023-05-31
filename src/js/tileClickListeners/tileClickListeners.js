@@ -1,10 +1,11 @@
-export * from './leftClick';
-export * from './rightClick';
-export * from './doubleClick';
-/* import { leftClick } from './leftClick';
+import { leftClick } from './leftClick';
 import { rightClick } from './rightClick';
 import { doubleClick } from './doubleClick';
 
-export function tileClickListeners(){
-
-} */
+export function tileClickListeners() {
+  return {
+    onclick: leftClick,
+    oncontextmenu: rightClick,
+    ondblclick: doubleClick
+  };
+}

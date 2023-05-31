@@ -1,5 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
-export function doubleClick(mineField, clickTimer, revealTileAndOrAdjTiles) {
+export function doubleClick({
+  mineField, clickTimer, pauseTimer, revealTileAndOrAdjTiles
+}) {
   return (event) => {
     event.preventDefault();
     clearTimeout(clickTimer);
@@ -9,7 +10,10 @@ export function doubleClick(mineField, clickTimer, revealTileAndOrAdjTiles) {
       const countAdjFlaggedTile = (adjTilesFlagged, id) => {
         const thisAdjTile = mineField.allTiles[id];
 
-        if (thisAdjTile.isFlagged) adjTilesFlagged++;
+        if (thisAdjTile.isFlagged) {
+          // eslint-disable-next-line no-param-reassign
+          adjTilesFlagged++;
+        }
 
         return adjTilesFlagged;
       };
@@ -17,7 +21,7 @@ export function doubleClick(mineField, clickTimer, revealTileAndOrAdjTiles) {
         .findAllAdjTileIds(thisTile.id)
         .reduce(countAdjFlaggedTile, 0);
 
-      revealTileAndOrAdjTiles.call(mineField, thisTile, numAdjFlaggedTiles);
+      revealTileAndOrAdjTiles.call(mineField, thisTile, pauseTimer, numAdjFlaggedTiles);
     }
   };
 }
