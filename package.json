@@ -1,22 +1,19 @@
 {
-  "author": "WeAreAthlon <hello@weareathlon.com> (https://www.weareathlon.com)",
-  "name": "@weareathlon/frontend-webpack-boilerplate",
-  "version": "5.16.0",
-  "description": "Starter project template boilerplate based on Webpack with SASS/PostCSS and babel ES6/7 support.",
+  "author": "Noel Kirkland",
+  "name": "Minesweeper-Clone-2023",
+  "version": "3.0.0",
+  "description": "My attempt at recreating the classic PC game, Minesweeper, using standard web dev tools/techniques",
   "homepage": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate#readme",
   "browserslist": [
     "last 2 versions",
     "> 5%"
   ],
-  "bugs": {
-    "url": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate/issues",
-    "email": "plamen@athlonsofia.com"
-  },
+  "bugs": "There are no known bugs at this time. If you happen to run into any issues please reach out to me at noelkirkland@gmail.com",
   "contributors": [
     {
-      "name": "Plamen Nikolov",
-      "email": "me@pnikoloff.com",
-      "url": "https://pnikoloff.com"
+      "name": "Noel Kirkland",
+      "email": "noelkirkland@gmail.com",
+      "url": "www.noelkirkland.dev"
     }
   ],
   "devDependencies": {
@@ -58,10 +55,11 @@
     "node": ">=14"
   },
   "keywords": [
-    "webpack",
-    "boilerplate",
-    "template",
-    "setup"
+    "minesweeper",
+    "videogame",
+    "web-development",
+    "game-development",
+    "frontend"
   ],
   "license": "MIT",
   "private": false,
