@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+<link rel="icon" href="favicon.ico"><script defer src="js/app.js"></script><link href="css/app.css" rel="stylesheet"></head>
+<body>
+  <div class="minesweeper">
+
+    <div class="game-board">
+      <div class="game-board__instructions--tooltip">
+        <p class="game-board__instructions--tooltip-text"></p>
+      </div>
+
+      <div class="game-board__instructions_details-panel">
+        <h2 class="game-board__instructions_details-panel--title">Minesweeper Instructions</h2>
+        <p class="game-board__instructions_details-panel--subtitle">- Hover to expand each subject -</p>
+        <section class="game-board__instructions_details-panel__section">
+          <h3 class="game-board__instructions_details-panel__section_section-header">Overview</h3>
+          <p class="game-board__instructions_details-panel__section_section-text">In the beginning, all game tiles are concealed. Hidden among the concealed tiles, and placed at random, are a number of mines (quantity of mines and size of game grid depends on the selected difficulty). An unconcealed, non-mine tile will display a number between 1 through 8, this number represents how many mines are concealed within that tile's immediately adjacent neighboring tiles. For instance, if a revealed tile shows the number 8, that means all 8 of that tile's neighboring tiles are concealing mines. If a revealed tile shows no number at all, that means no mines are concealed within the tile's neighboring tiles.</p>
+        </section>
+        <section class="game-board__instructions_details-panel__section">
+          <h3 class="game-board__instructions_details-panel__section_section-header">Objective</h3>
+          <p class="game-board__instructions_details-panel__section_section-text">To win the game you must reveal all non-mine tiles, leaving concealed only the tiles in which a mine is hidden. If you happen to reveal a mine then the game is lost and you must start over from a new game with mines that have been placed at new, randomly generated coordinates. As your skills improve, use the game timer and try to set a new personal record. Or, play against someone else and see who can win with the fastest time.</p>
+        </section>
+        <section class="game-board__instructions_details-panel__section">
+          <h3 class="game-board__instructions_details-panel__section_section-header">How to Play</h3>
+           <div class="game-board__instructions_details-panel__section_section-text">
+            <ul class="game-board__instructions_details-panel__section_section-text--unordered-list">
+              <li><span class="game-board__instructions_details-panel__section_section-text--list-item">Left click to reveal a tile</span></li>
+              <li><span class="game-board__instructions_details-panel__section_section-text--list-item">Right click to flag a tile you suspect is concealing a mine</span></li>
+              <li><span class="game-board__instructions_details-panel__section_section-text--list-item">Double click an unconcealed tile to reveal all adjacent tiles*</span></li>
+            </ul>
+            <div class="game-board__instructions_details-panel__section_section-text--double-click-details">* the double clicked tile must have one or more flags among its adjacent tiles. The number of these flagged-tiles has to be equal to the number of mines hidden in the neighboring tiles, e.g. to double click a "2" it must be touching two flagged tiles, a "4" must be touching four flagged tiles, etc. In turn, all still-concealed, but <span class="game-board__instructions_details-panel__section_section-text--underlined">un</span>-flagged, neighboring tiles are revealed simultaneously</div>
+          </div>
+        </section>
+        <section class="game-board__instructions_details-panel__section">
+          <h3 class="game-board__instructions_details-panel__section_section-header">Game Specs</h3>
+          <p class="game-board__instructions_details-panel__section_section-text">There are three levels of difficulty you can select from; Easy which has 8 columns of 8 tiles and 10 hidden mines, Medium which has 16 columns of 16 tiles and 40 hidden mines, and Hard which has 32 columns of 16 tiles and 99 hidden mines. Clicking the reset button (the one with the smiley face) will clear the board and assemble a new one with the difficulty specifications of whichever level you had selected last. The default level of difficulty is set to Easy.</p>
+        </section>
+        <h3 class="game-board__instructions_details-panel--footer minesweeper--element-is-visible">Good Luck!</h3>
+      </div>
+
+      <div class="game-board__header-row">
+        <div class="game-board__instructions--tooltip-icon game-board__header-row--tooltip-icon"></div>
+      </div>
+      <div class="game-board__header-row">
+        <button class="game-board__header-row_button game-board__header-row_button--difficulty-button" data-difficulty="easy">
+          <p class="game-board__header-row_button--button-label">
+            Easy
+          </p>
+        </button>
+        <button class="game-board__header-row_button game-board__header-row_button--difficulty-button" data-difficulty="medium">
+          <p class="game-board__header-row_button--button-label">
+            Medium
+          </p>
+        </button>
+        <button class="game-board__header-row_button game-board__header-row_button--difficulty-button" data-difficulty="hard">
+          <p class="game-board__header-row_button--button-label">
+            Hard
+          </p>
+        </button>
+      </div>
+      <div class="game-board__header-row">
+        <div class="game-board__header-row_counter-box">
+          <p class="game-board__header-row_counter-box-nums game-board__header-row_counter-box-nums--mines-remaining">💣 : 000</p>
+        </div>
+  
+        <button class="game-board__header-row_button game-board__header-row_button--reset-button" data-difficulty="current">
+          <div class="game-board__header-row--reset-face">
+            🙂
+          </div>
+        </button>
+  
+        <div class="game-board__header-row_counter-box">
+          <p class="game-board__header-row_counter-box-nums game-board__header-row_counter-box-nums--time-elapsed">00:00:000</p>
+        </div>
+  
+      </div>
+  
+      <div class="game-board__grid-area">
+      </div>
+    </div>
+  
+  </div>
+</body>
+</html>
