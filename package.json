@@ -2,8 +2,12 @@
   "author": "Noel Kirkland",
   "name": "Minesweeper-Clone-2023",
   "version": "3.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoelKirkland/minesweeper-clone.git"
+  },
   "description": "My attempt at recreating the classic PC game, Minesweeper, using standard web dev tools/techniques",
-  "homepage": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate#readme",
+  "homepage": "https://noelkirkland.github.io/minesweeper-clone/",
   "browserslist": [
     "last 2 versions",
     "> 5%"
@@ -13,7 +17,7 @@
     {
       "name": "Noel Kirkland",
       "email": "noelkirkland@gmail.com",
-      "url": "www.noelkirkland.dev"
+      "url": "http://www.noelkirkland.dev"
     }
   ],
   "devDependencies": {
@@ -31,6 +35,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin": "^8.0.1",
@@ -63,10 +68,6 @@
   ],
   "license": "MIT",
   "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
-  },
   "scripts": {
     "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
     "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch",
@@ -75,7 +76,9 @@
     "production": "webpack --config configuration/webpack.prod.config.js --mode=production",
     "lint:sass": "sass-lint -v -q",
     "lint:js": "eslint --ext .js src/js/",
-    "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
+    "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "target": "web",
   "dependencies": {}
