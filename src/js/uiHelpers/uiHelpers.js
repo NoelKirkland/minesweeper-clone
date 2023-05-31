@@ -1,3 +1,5 @@
+export * from './tileClickListeners/tileClickListeners';
+export * from './allTimerFunctions';
 export * from './clearGameBoard';
 export * from './createTileNode';
 export * from './findTileNode';
@@ -7,3 +9,4 @@ export * from './newTileNode';
 export * from './revealTileAndOrAdjTiles';
 export * from './selectDifficulty';
 export * from './setInstructionsDetailsSection';
+export * from './updateMineCounter';

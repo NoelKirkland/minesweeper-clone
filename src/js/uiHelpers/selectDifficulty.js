@@ -1,5 +1,8 @@
-import { baseClass } from '../classNames';
-import { difficultyInfoObj, instructionsDetailsPanel } from '../uiVariables';
+import {
+  instructionsDetailsPanel,
+  difficultyInfoObj,
+  classes
+} from '../uiVariables/uiVariables';
 
 export function selectDifficulty(newGame) {
   return (event) => {
@@ -7,7 +10,7 @@ export function selectDifficulty(newGame) {
     const selectedDifficultyInfo = difficultyInfoObj[selectedDifficulty];
 
     instructionsDetailsPanel.classList.remove(
-      baseClass + '--element-is-visible'
+      classes.baseClass + '--element-is-visible'
     );
     difficultyInfoObj.current = selectedDifficultyInfo;
     newGame(difficultyInfoObj.current);

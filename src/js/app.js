@@ -1,26 +1,25 @@
 import '../scss/app.scss';
-import * as classes from './classNames';
-import * as uiVars from './uiVariables';
-/* import {
-  gameBoard, instructionsTooltipIcon, topFourButtonsArr, numMinesRemaining, buttonFace, timerDisplay, gameGrid, allInstructionsSections, difficultyInfoObj
-} from './uiVariables'; */
+import * as uiHelpers from './uiHelpers/uiHelpers';
+import * as uiVars from './uiVariables/uiVariables';
 import MineField from './classes/minefield';
-import { updateMineCounter, allTimerFunctions } from './mineCountAndTimer';
-// import * as uiHelp from './uiHelpers/uiHelpers';
-import {
-  clearGameBoard,
-  createTileNode,
-  instructionsTooltipIconListeners,
-  newTileNode,
-  revealTileAndOrAdjTiles,
-  selectDifficulty,
-  setInstructionsDetailsSection
-} from './uiHelpers/uiHelpers';
-import { tileClickListeners } from './tileClickListeners/tileClickListeners';
 
-// all code is enclosed in an IIFE so as to not pollute the global state
+/* *** all code is enclosed in an IIFE so as to not pollute the global state *** */
 (() => {
-// some game board set up:
+  // all necessary UI helper functions:
+  const {
+    allTimerFunctions,
+    tileClickListeners,
+    clearGameBoard,
+    createTileNode,
+    instructionsTooltipIconListeners,
+    newTileNode,
+    revealTileAndOrAdjTiles,
+    selectDifficulty,
+    setInstructionsDetailsSection,
+    updateMineCounter
+  } = uiHelpers;
+
+  /* *** first some game board set up *** */
   // add the hover functions to the instructions icon:
   Object.entries(instructionsTooltipIconListeners()).map(
     ([listener, callBack]) => {
@@ -49,10 +48,10 @@ import { tileClickListeners } from './tileClickListeners/tileClickListeners';
   // all countdown display functions:
   const { startTimer, pauseTimer, resetTimer } = allTimerFunctions(
     uiVars.timerDisplay,
-    classes.headerClass
+    uiVars.classes.headerClass
   );
 
-  // and where it all comes together...
+  /* *** where it all comes together... *** */
   function newGame({ numCols, numRows, numMines }) {
     // generate a new MineField class:
     const newMineField = new MineField(numCols, numRows, numMines);

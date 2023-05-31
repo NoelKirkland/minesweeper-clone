@@ -1,11 +1,24 @@
-import * as classes from './classNames';
+import { classes } from './classNames';
+
+export const [padTwo, padThree] = ((...numDigitsArr) => numDigitsArr.map((numDigits) => {
+  let paddedNum = '';
+  while (paddedNum.length < numDigits) {
+    paddedNum += '0';
+  }
+
+  return (num) => {
+    const numStr = Math.abs(num) + '';
+
+    return paddedNum.substring(0, paddedNum.length - numStr.length) + numStr;
+  };
+}))(2, 3);
 
 export const minesweeper = document.querySelector('.' + classes.baseClass);
 export const gameBoard = minesweeper.querySelector(
   '.' + classes.gameBoardClass
 );
 export const instructionsTooltipIcon = gameBoard.querySelector(
-  classes.instructionsTooltipIcon
+  classes.instructionsTooltipIconClass
 );
 export const topFourButtonsArr = [
   ...gameBoard.querySelectorAll(classes.headerClass + '_button')

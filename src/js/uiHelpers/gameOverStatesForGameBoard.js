@@ -1,13 +1,17 @@
-import { gameGridClass } from '../classNames';
-import { gameGrid, buttonFace, numMinesRemaining } from '../uiVariables';
-import { updateMineCounter } from '../mineCountAndTimer';
+import {
+  numMinesRemaining,
+  buttonFace,
+  gameGrid,
+  classes
+} from '../uiVariables/uiVariables';
 import { findTileNode } from './findTileNode';
 import { newTileNode } from './newTileNode';
+import { updateMineCounter } from './updateMineCounter';
 
 export function gameOverStatesForGameBoard() {
   function createEndGameText(didWin) {
     const h2 = document.createElement('h2');
-    const endGameClass = gameGridClass + '_end-game-text';
+    const endGameClass = classes.gameGridClass + '_end-game-text';
 
     if (didWin) {
       h2.classList.add(endGameClass, endGameClass + '--winner-text');

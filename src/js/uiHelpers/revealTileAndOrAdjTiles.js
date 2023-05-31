@@ -1,4 +1,4 @@
-import { tileClass } from '../classNames';
+import { classes } from '../uiVariables/uiVariables';
 import { findTileNode } from './findTileNode';
 import { newTileNode } from './newTileNode';
 import { gameOverStatesForGameBoard } from './gameOverStatesForGameBoard';
@@ -18,7 +18,7 @@ export function revealTileAndOrAdjTiles(
         domNode.dataset.numAdjMines = tile.numAdjMines;
         domNode.appendChild(newTileNode(tile.numAdjMines));
       }
-      domNode.classList.add(tileClass + '--revealed');
+      domNode.classList.add(classes.tileClass + '--revealed');
     }
   }
   function revealAllAdjacentTiles(tile) {

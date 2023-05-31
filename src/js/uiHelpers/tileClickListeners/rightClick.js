@@ -1,4 +1,4 @@
-import { numMinesRemaining } from '../uiVariables';
+import { numMinesRemaining } from '../../uiVariables/uiVariables';
 
 export function rightClick({ mineField, updateMineCounter, newTileNode }) {
   return (event) => {
