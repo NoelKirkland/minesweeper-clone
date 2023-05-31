@@ -1,0 +1,9 @@
+export const baseClass = 'minesweeper';
+export const gameBoardClass = 'game-board';
+export const headerClass = '.' + gameBoardClass + '__header-row';
+export const headerCountBox = headerClass + '_counter-box-nums';
+export const instructionsTooltipIcon = headerClass + '--tooltip-icon';
+export const gameGridClass = gameBoardClass + '__grid-area';
+export const tileClass = gameGridClass + '_tile';
+export const instructionsClass = '.' + gameBoardClass + '__instructions';
+export const instructionsDetailsPanelClass = instructionsClass + '_details-panel';
