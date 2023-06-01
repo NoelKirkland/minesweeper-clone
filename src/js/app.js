@@ -1,10 +1,23 @@
 import '../scss/app.scss';
-import * as uiHelpers from './uiHelpers/uiHelpers';
-import * as uiVars from './uiVariables/uiVariables';
+import * as uiVariables from './uiVariables';
+import * as uiHelpers from './uiHelpers';
 import MineField from './classes/minefield';
 
-/* *** all code is enclosed in an IIFE so as to not pollute the global state *** */
+// code enclosed in an IIFE so as to not pollute the global state
 (() => {
+  /* *** 1. Destructure imports for all UI assets *** */
+  // all DOM nodes which require added functionality:
+  const {
+    instructionsTooltipIcon,
+    allInstructionsSections,
+    topFourButtonsArr,
+    gameGrid,
+    buttonFace,
+    timerDisplay,
+    numMinesRemaining,
+    gameBoard,
+    difficultyInfoObj
+  } = uiVariables;
   // all necessary UI helper functions:
   const {
     allTimerFunctions,
@@ -18,20 +31,25 @@ import MineField from './classes/minefield';
     setInstructionsDetailsSection,
     updateMineCounter
   } = uiHelpers;
+  // all countdown display functions:
+  const { startTimer, pauseTimer, resetTimer } = allTimerFunctions(
+    timerDisplay,
+    uiVariables.classes.headerClass
+  );
 
-  /* *** first some game board set up *** */
+  /* *** 2. Assemble the game board *** */
   // add the hover functions to the instructions icon:
   Object.entries(instructionsTooltipIconListeners()).map(
     ([listener, callBack]) => {
-      uiVars.instructionsTooltipIcon[listener] = callBack;
+      instructionsTooltipIcon[listener] = callBack;
     }
   );
 
   // add similar hover functions to each instructions header:
-  uiVars.allInstructionsSections.map(setInstructionsDetailsSection);
+  allInstructionsSections.map(setInstructionsDetailsSection);
 
   // implement the functionality of the top four buttons:
-  uiVars.topFourButtonsArr.map((button) => {
+  topFourButtonsArr.map((button) => {
     button.onclick = selectDifficulty(newGame);
   });
 
@@ -40,16 +58,10 @@ import MineField from './classes/minefield';
     ['onmousedown', '😮'],
     ['onmouseup', '🙂']
   ].map(([event, face]) => {
-    uiVars.gameGrid[event] = () => {
-      uiVars.buttonFace.innerText = face;
+    gameGrid[event] = () => {
+      buttonFace.innerText = face;
     };
   });
-
-  // all countdown display functions:
-  const { startTimer, pauseTimer, resetTimer } = allTimerFunctions(
-    uiVars.timerDisplay,
-    uiVars.classes.headerClass
-  );
 
   /* *** where it all comes together... *** */
   function newGame({ numCols, numRows, numMines }) {
@@ -62,8 +74,8 @@ import MineField from './classes/minefield';
     resetTimer();
 
     // set up new game board:
-    updateMineCounter(newMineField.numUnflaggedMines, uiVars.numMinesRemaining);
-    uiVars.gameGrid.style.gridTemplateColumns = `repeat(${numCols}, 28px)`;
+    updateMineCounter(newMineField.numUnflaggedMines, numMinesRemaining);
+    gameGrid.style.gridTemplateColumns = `repeat(${numCols}, 28px)`;
 
     // generate all the game tiles:
     newMineField.iterateOverAllTiles(({ curCol, curRow }) => {
@@ -85,16 +97,16 @@ import MineField from './classes/minefield';
         thisTileNode[listener] = callBack(tileClickProps);
       });
 
-      uiVars.gameGrid.appendChild(thisTileNode);
+      gameGrid.appendChild(thisTileNode);
     });
 
     // and lastly, ease into view. Nice!
-    uiVars.gameBoard.scrollIntoView({
+    gameBoard.scrollIntoView({
       behavior: 'smooth',
       block: 'end'
     });
   }
 
   // generates a new game on load:
-  newGame(uiVars.difficultyInfoObj.current);
+  newGame(difficultyInfoObj.current);
 })();

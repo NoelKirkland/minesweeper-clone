@@ -1,4 +1,4 @@
-import { classes } from '../uiVariables/uiVariables';
+import { classes } from '../uiVariables';
 import { findTileNode } from './findTileNode';
 import { newTileNode } from './newTileNode';
 import { gameOverStatesForGameBoard } from './gameOverStatesForGameBoard';

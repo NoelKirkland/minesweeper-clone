@@ -3,7 +3,7 @@ import {
   buttonFace,
   gameGrid,
   classes
-} from '../uiVariables/uiVariables';
+} from '../uiVariables';
 import { findTileNode } from './findTileNode';
 import { newTileNode } from './newTileNode';
 import { updateMineCounter } from './updateMineCounter';

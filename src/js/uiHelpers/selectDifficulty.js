@@ -2,7 +2,7 @@ import {
   instructionsDetailsPanel,
   difficultyInfoObj,
   classes
-} from '../uiVariables/uiVariables';
+} from '../uiVariables';
 
 export function selectDifficulty(newGame) {
   return (event) => {

@@ -1,8 +1,4 @@
-import {
-  numMinesRemaining,
-  buttonFace,
-  gameGrid
-} from '../uiVariables/uiVariables';
+import { numMinesRemaining, buttonFace, gameGrid } from '../uiVariables';
 import { updateMineCounter } from './updateMineCounter';
 
 export function clearGameBoard() {

@@ -1,4 +1,4 @@
-import { classes } from '../uiVariables/uiVariables';
+import { classes } from '../uiVariables';
 
 export function createTileNode(id) {
   const div = document.createElement('div');

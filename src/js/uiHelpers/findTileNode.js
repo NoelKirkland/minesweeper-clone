@@ -1,4 +1,4 @@
-import { gameGrid, classes } from '../uiVariables/uiVariables';
+import { gameGrid, classes } from '../uiVariables';
 
 export function findTileNode(id) {
   const domNode = gameGrid.querySelector(

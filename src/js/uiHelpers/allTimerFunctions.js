@@ -1,4 +1,4 @@
-import { padTwo, padThree } from '../uiVariables/uiVariables';
+import { padTwo, padThree } from '../uiVariables';
 
 export const allTimerFunctions = (timerDisplayNode, headerClass) => {
   let timerInterval = null;

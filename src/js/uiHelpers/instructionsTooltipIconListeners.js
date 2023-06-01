@@ -1,8 +1,4 @@
-import {
-  gameBoard,
-  instructionsDetailsPanel,
-  classes
-} from '../uiVariables/uiVariables';
+import { gameBoard, instructionsDetailsPanel, classes } from '../uiVariables';
 
 export function instructionsTooltipIconListeners() {
   const instructionsTooltip = gameBoard.querySelector(

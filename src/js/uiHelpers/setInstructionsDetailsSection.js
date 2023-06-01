@@ -1,4 +1,4 @@
-import { classes } from '../uiVariables/uiVariables';
+import { classes } from '../uiVariables';
 
 export function setInstructionsDetailsSection(section) {
   const sectionHeader = section.querySelector(
