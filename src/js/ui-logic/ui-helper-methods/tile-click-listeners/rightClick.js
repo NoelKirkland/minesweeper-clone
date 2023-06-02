@@ -1,4 +1,4 @@
-import { numMinesRemaining } from '../../uiVariables';
+import { numMinesDisplay } from '../../ui-elements';
 
 export function rightClick({ mineField, updateMineCounter, newTileNode }) {
   return (event) => {
@@ -13,7 +13,7 @@ export function rightClick({ mineField, updateMineCounter, newTileNode }) {
         const currFlag = event.target.firstChild;
         event.target.removeChild(currFlag);
       }
-      updateMineCounter(mineField.numUnflaggedMines, numMinesRemaining);
+      updateMineCounter(mineField.numUnflaggedMines, numMinesDisplay);
     }
   };
 }

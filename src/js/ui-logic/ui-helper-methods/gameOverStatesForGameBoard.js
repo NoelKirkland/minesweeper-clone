@@ -1,9 +1,9 @@
 import {
-  numMinesRemaining,
+  numMinesDisplay,
   buttonFace,
   gameGrid,
-  classes
-} from '../uiVariables';
+  classNames
+} from '../ui-elements';
 import { findTileNode } from './findTileNode';
 import { newTileNode } from './newTileNode';
 import { updateMineCounter } from './updateMineCounter';
@@ -11,7 +11,7 @@ import { updateMineCounter } from './updateMineCounter';
 export function gameOverStatesForGameBoard() {
   function createEndGameText(didWin) {
     const h2 = document.createElement('h2');
-    const endGameClass = classes.gameGridClass + '_end-game-text';
+    const endGameClass = classNames.gameGridClass + '_end-game-text';
 
     if (didWin) {
       h2.classList.add(endGameClass, endGameClass + '--winner-text');
@@ -26,7 +26,7 @@ export function gameOverStatesForGameBoard() {
     const winnerText = createEndGameText(true);
     gameGrid.appendChild(winnerText);
     buttonFace.innerText = '😎';
-    updateMineCounter(0, numMinesRemaining);
+    updateMineCounter(0, numMinesDisplay);
   }
   function gameBoardIfLost(mineIdArr) {
     const loserText = createEndGameText(false);

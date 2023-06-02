@@ -1,11 +1,15 @@
-import { gameBoard, instructionsDetailsPanel, classes } from '../uiVariables';
+import {
+  gameBoard,
+  instructionsDetailsPanel,
+  classNames
+} from '../ui-elements';
 
 export function instructionsTooltipIconListeners() {
   const instructionsTooltip = gameBoard.querySelector(
-    classes.instructionsClass + '--tooltip'
+    classNames.instructionsClass + '--tooltip'
   );
   const instructionsTooltipText = gameBoard.querySelector(
-    classes.instructionsClass + '--tooltip-text'
+    classNames.instructionsClass + '--tooltip-text'
   );
 
   function mouseOver() {
@@ -15,26 +19,26 @@ export function instructionsTooltipIconListeners() {
       instructionsTooltipText.innerText = 'click to hide instructions';
     }
     instructionsTooltip.classList.add(
-      classes.baseClass + '--element-is-visible'
+      classNames.baseClass + '--element-is-visible'
     );
   }
   function mouseOut() {
     instructionsTooltip.classList.remove(
-      classes.baseClass + '--element-is-visible'
+      classNames.baseClass + '--element-is-visible'
     );
   }
   function click() {
     instructionsTooltip.classList.remove(
-      classes.baseClass + '--element-is-visible'
+      classNames.baseClass + '--element-is-visible'
     );
 
     if (window.getComputedStyle(instructionsDetailsPanel).display === 'none') {
       instructionsDetailsPanel.classList.add(
-        classes.baseClass + '--element-is-visible'
+        classNames.baseClass + '--element-is-visible'
       );
     } else {
       instructionsDetailsPanel.classList.remove(
-        classes.baseClass + '--element-is-visible'
+        classNames.baseClass + '--element-is-visible'
       );
     }
   }

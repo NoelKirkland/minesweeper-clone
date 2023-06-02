@@ -8,7 +8,7 @@ const tileClass = gameGridClass + '_tile';
 const instructionsClass = '.' + gameBoardClass + '__instructions';
 const instructionsDetailsPanelClass = instructionsClass + '_details-panel';
 
-export const classes = {
+export const classNames = {
   baseClass: baseClass,
   gameBoardClass: gameBoardClass,
   headerClass: headerClass,

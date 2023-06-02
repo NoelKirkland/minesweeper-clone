@@ -1,4 +1,4 @@
-export * from './tileClickListeners/tileClickListeners';
+export * from './tile-click-listeners/tileClickListeners';
 export * from './allTimerFunctions';
 export * from './clearGameBoard';
 export * from './createTileNode';
